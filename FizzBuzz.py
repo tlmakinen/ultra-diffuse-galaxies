@@ -1,4 +1,5 @@
 #FizzBuzz
+#Replaces every number divisible by 3 with Fizz
 import numpy as mp
 
 mylist = np.arange(1, 100, 1)
