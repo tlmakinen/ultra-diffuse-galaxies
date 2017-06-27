@@ -99,7 +99,7 @@ def panelplot(axis, ds9number, panelarray):
 
 
 chandrapanels = ['I3', 'S3', 'I2', 'I1', 'I0']
-nums = [17285]
+nums = [4289, 3209]
 
 #nums = [int(n.split('.')[0]) for n in os.listdir('regfiles/') if n[-1]=='g']  # Plot all .reg fules in regfiles/
 print(nums)
@@ -108,7 +108,10 @@ fig, ax1 = plt.subplots()
 perseusplot(ax1)
 
 for loop in range(len(nums)):                               # plot all panel files specified
+    #fig, ax1 = plt.subplots()
+    #perseusplot(ax1)
     panelplot(ax1, nums[loop], chandrapanels)
+    #plt.title(str(nums[loop]))
 plt.show()
     
 
