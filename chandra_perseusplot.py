@@ -11,6 +11,9 @@ import pylab
 import astropy
 import pyregion
 from matplotlib.lines import Line2D
+from astropy.io import fits
+import matplotlib.cm as cmx
+import matplotlib.colors as colors
 
 def image_file(imagenum):  # takes each file's number and returns a string filename
     fname = 'regfiles/%s.reg' %imagenum
@@ -41,7 +44,7 @@ def perseusplot(ax1):
 
     return ax1
 
-def panelplot(axis, ds9number, panelarray):
+def panelplot(axis, ds9number, panelarray, colornum):
 
     ax1 = axis
     imagenum = ds9number                                   # which file are we looking at?
@@ -64,55 +67,101 @@ def panelplot(axis, ds9number, panelarray):
                 commentarray.append(r[i].comment)          #  Save each comment from selected panel (saves panel name)
 
 
+    # upperlimit = 100
+    # values = range(upperlimit)
+    # jet = cm = plt.get_cmap('jet')
+    # cNorm = colors.Normalize(vmin=0, vmax=values[-1])
+    # scalarMap = cmx.ScalarMappable(norm=cNorm, cmap=jet)
+    # print(scalarMap.get_clim())
+
+    # colorVal = scalarMap.to_rgba(colornum)
+
+
 
     colorarray = np.zeros(len(commentarray))               #  Associate a color with each panel name
     for c in range(len(commentarray)):
         if "I3" in commentarray[c]:
-            colorarray[c] = 50
+            colorarray[c] = colornum
         elif "I2" in commentarray[c]:
-            colorarray[c] = 10
+            colorarray[c] = colornum
         elif "I1" in commentarray[c]:
-            colorarray[c] = 10
+            colorarray[c] = colornum
         elif "I0" in commentarray[c]:
-            colorarray[c] = 10
+            colorarray[c] = colornum
         elif "S3" in commentarray[c]:
-            colorarray[c] = 10
+            colorarray[c] = colornum
 
        
     patches = []                                            # initialize list of patches
-
+    #edgecolors = [matplotlib.cm.jet(x) for x in colorarray]
     for i in range(len(xyarrays)):                          # hard-code the polynomials using four calculated panel points
         xy = xyarrays[i]
         panel = Polygon([[xy[0],xy[1]], [xy[2],xy[3]], [xy[4],xy[5]], [xy[6],xy[7]]], fill=False)  
         patches.append(panel)
 
 
-    p = PatchCollection(patches, cmap=matplotlib.cm.jet, alpha=0.6, facecolor="None", edgecolor='face')  # collect all the patches together
+    #p = PatchCollection(patches, cmap=matplotlib.cm.jet, alpha=0.2, facecolor=edgecolors, edgecolors=edgecolors) # collect all the patches together
     #p = PatchCollection(patches)
-    colors = colorarray                                     
-    p.set_array(np.array(colors))                           # set all the colors
+    #colors = colorarray                                     
+    #p.set_array(np.array(colors))                           # set all the colors
 
     
-    ax1.add_collection(p)                                   # add all our patches to the axes
-    plt.title(str(imagenum))                                # add what number we're looking at
+    #ax1.add_collection(p)                                   # add all our patches to the axes
+    #plt.title(str(imagenum))                                # add what number we're looking at
     #plt.show()
+    return patches
 
+def fits_file(imagenum):  # takes each file's number and returns a string fits filename
+    if int(imagenum) < 1000:
+        return 'FITSfiles/acisf00%s_repro_evt2.fits' %imagenum
+    if int(imagenum) < 10000:
+        return 'FITSfiles/acisf0%s_repro_evt2.fits' %imagenum
+    else:
+        return 'FITSfiles/acisf%s_repro_evt2.fits' %imagenum
 
 chandrapanels = ['I3', 'S3', 'I2', 'I1', 'I0']
-nums = [4289, 3209]
+nums = [502, 4949, 17274]
 
-#nums = [int(n.split('.')[0]) for n in os.listdir('regfiles/') if n[-1]=='g']  # Plot all .reg fules in regfiles/
-print(nums)
+nums = [int(n.split('.')[0]) for n in os.listdir('regfiles/') if n[-1]=='g']  # Plot all .reg fules in regfiles/
+#print(nums)
+
 
 fig, ax1 = plt.subplots()
 perseusplot(ax1)
+timearray = []
 
-for loop in range(len(nums)):                               # plot all panel files specified
-    #fig, ax1 = plt.subplots()
-    #perseusplot(ax1)
-    panelplot(ax1, nums[loop], chandrapanels)
+for i in range(len(nums)):                               # plot all panel files specified
+    fname = fits_file(nums[i])
+    hdulist = fits.open(fname)
+    hduheader = hdulist[1].header
+
+    exposuretime = hduheader['EXPOSURE']                  # get the exposure time from the FITS header
+    colornum = exposuretime                        # adjust exposure time to ksecs
+                                                          # also adjusts for a [0,100] color map
+    timearray.append(colornum)
+
+colorindex = np.array(timearray)
+index_norm = colorindex / colorindex.max()
+
+for i in range(len(nums)):
+    #print("exposure time of " + str(nums[i]) + " = " + str(exposuretime))
+    rightcolor = index_norm[i]
+    patches = panelplot(ax1, nums[i], chandrapanels, rightcolor)
+    edgecolors = [matplotlib.cm.jet(rightcolor)]
+
+    p = PatchCollection(patches, cmap=matplotlib.cm.jet, alpha=0.2, facecolor=edgecolors, edgecolors=edgecolors) # collect all the patches together
+    #p.set_array()
+    ax1.add_collection(p) 
+
+
     #plt.title(str(nums[loop]))
+
+
+
+
 plt.show()
+
+
     
 
 
