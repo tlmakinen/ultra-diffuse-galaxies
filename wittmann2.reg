@@ -1,4 +1,7 @@
-# Region file format: DS9 version 4.1global color=green dashlist=8 3 width=1 font="helvetica 10 normal roman" select=1 highlite=1 dash=0 fixed=0 edit=1 move=1 delete=1 include=1 source=1fk5circle(49.2515416667,41.3223888889,11.4457831325") # text={Wittmann 1}
+# Region file format: DS9 version 4.1
+global color=green dashlist=8 3 width=1 font="helvetica 10 normal roman" select=1 highlite=1 dash=0 fixed=0 edit=1 move=1 delete=1 include=1 source=1
+fk5
+circle(49.2515416667,41.3223888889,11.4457831325") # text={Wittmann 1}
 circle(49.2635833333,41.3414166667,7.22891566265") # text={Wittmann 2}
 circle(49.2684166667,41.5108888889,4.81927710843") # text={Wittmann 3}
 circle(49.2797083333,41.38125,10.2409638554") # text={Wittmann 4}
