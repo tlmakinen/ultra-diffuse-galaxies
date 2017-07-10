@@ -1,0 +1,130 @@
+
+Chandra ObsID: 11714
+================================
+Wittmann UDG 77
+++++++++++++++++++++++++++++++++
+
+ENERGY=300:2000
+#===== 2017-07-06 15:58:34 =====
+#File: /scr/depot0/goulding/LUCAS/11714/repro/acisf11714_repro_evt2.fits[EVENTS][energy=300:2000]
+
+#Background subtracted data
+
+#COMPONENT       NET_COUNTS      NET_ERR         NET_RATE        CEL_AREA        CEL_BRI         CEL_BRI_ERR     BGREG_COUNTS    BGREG_ERR       
+#                count           count           count/s         arcsec**2       count/arcsec**2 count/arcsec**2 count           count           
+ 1               18.1786         21.6471         0.000197603     223.469         0.0813473       0.0968684       415.821         5.88178         
+
+
+#source region(s):
+#circle(4303.0387,4408.6785,17.142276)
+
+#COMPONENT       COUNTS          COUNT_RATE      AREA            
+#                count           count/s         pixel**2        
+ 1               434             0.00471763      923.181         
+
+
+#background region(s):
+#box(4303.0387,4408.6785,107.72358,107.72358,0.11071814)-circle(4346.6777,4443.0085,6.9979673)-circle(4297.5746,4391.3265,6.9979673)-circle(4304.3604,4358.0571,5.4024389)-circle(4319.4626,4436.2002,6.2195121)
+
+#BG_COUNTS       BG_RATE         BG_AREA         
+#count           count/s         pixel**2        
+ 4998            0.0543289       11096.2
+
+
+ENERGY=2000:7000
+#===== 2017-07-06 16:21:40 =====
+#File: /scr/depot0/goulding/LUCAS/11714/repro/acisf11714_repro_evt2.fits[EVENTS][energy=2000:7000]
+
+#Background subtracted data
+
+#COMPONENT       NET_COUNTS      NET_ERR         NET_RATE        CEL_AREA        CEL_BRI         CEL_BRI_ERR     BGREG_COUNTS    BGREG_ERR       
+#                count           count           count/s         arcsec**2       count/arcsec**2 count/arcsec**2 count           count           
+ 1               -25.8758        16.211          -0.000281273    223.469         -0.115791       0.0725424       265.876         4.7745          
+ 2               0               0               0               0               0               0               0               0               
+
+
+#source region(s):
+#circle(4303.0387,4408.6785,17.142276)
+#circle(4066.8787,4152.1536,0)-circle(4303.0387,4408.6785,17.142276)
+
+#COMPONENT       COUNTS          COUNT_RATE      AREA            
+#                count           count/s         pixel**2        
+ 1               240             0.00260883      923.181         
+ 2               0               0               0               
+
+
+#background region(s):
+#box(4303.0387,4408.6785,107.72358,107.72358,0.11071814)-circle(4346.6777,4443.0085,6.9979673)-circle(4297.5746,4391.3265,6.9979673)-circle(4304.3604,4358.0571,5.4024389)-circle(4319.4626,4436.2002,6.2195121)-circle(4319.4004,4368.4668,10.232058)
+
+#BG_COUNTS       BG_RATE         BG_AREA         
+#count           count/s         pixel**2        
+ 3101            0.0337082       10767.4         
+
+
+Wittmann UDG 76
+++++++++++++++++++++++++++++++++
+
+ENERGY=2000:7000
+#===== 2017-07-06 16:31:30 =====
+#File: /scr/depot0/goulding/LUCAS/11714/repro/acisf11714_repro_evt2.fits[EVENTS][energy=2000:7000]
+
+#Background subtracted data
+
+#COMPONENT       NET_COUNTS      NET_ERR         NET_RATE        CEL_AREA        CEL_BRI         CEL_BRI_ERR     BGREG_COUNTS    BGREG_ERR       
+#                count           count           count/s         arcsec**2       count/arcsec**2 count/arcsec**2 count           count           
+ 1               1.21741         12.2405         1.32334e-05     256.509         0.00474607      0.0477197       135.783         3.58192         
+
+
+#source region(s):
+#circle(4522.5021,4746.0214,18.365853)
+
+#COMPONENT       COUNTS          COUNT_RATE      AREA            
+#                count           count/s         pixel**2        
+ 1               137             0.00148921      1059.67         
+
+
+#background region(s):
+#box(4522.5021,4746.0214,107.72358,107.72358,0.11065755)-circle(4537.1293,4793.1447,6.4207316)-circle(4566.4815,4757.3457,6.4207316)-circle(4558.1337,4721.0061,6.4207316)
+
+#BG_COUNTS       BG_RATE         BG_AREA         
+#count           count/s         pixel**2        
+ 1437            0.0156204       11214.6         
+
+
+ENERGY=300:2000
+#===== 2017-07-06 16:32:22 =====
+#File: /scr/depot0/goulding/LUCAS/11714/repro/acisf11714_repro_evt2.fits[EVENTS][energy=300:2000]
+
+#Background subtracted data
+
+#COMPONENT       NET_COUNTS      NET_ERR         NET_RATE        CEL_AREA        CEL_BRI         CEL_BRI_ERR     BGREG_COUNTS    BGREG_ERR       
+#                count           count           count/s         arcsec**2       count/arcsec**2 count/arcsec**2 count           count           
+ 1               -7.51618        14.2928         -8.17018e-05    256.509         -0.0293018      0.0557207       193.516         4.27614         
+
+
+#source region(s):
+#circle(4522.5021,4746.0214,18.365853)
+
+#COMPONENT       COUNTS          COUNT_RATE      AREA            
+#                count           count/s         pixel**2        
+ 1               186             0.00202184      1059.67         
+
+
+#background region(s):
+#box(4522.5021,4746.0214,107.72358,107.72358,0.11065755)-circle(4537.1293,4793.1447,6.4207316)-circle(4566.4815,4757.3457,6.4207316)-circle(4558.1337,4721.0061,6.4207316)
+
+#BG_COUNTS       BG_RATE         BG_AREA         
+#count           count/s         pixel**2        
+ 2048            0.022262        11214.6         
+
+
+
+
+
+
+
+
+
+
+
+
